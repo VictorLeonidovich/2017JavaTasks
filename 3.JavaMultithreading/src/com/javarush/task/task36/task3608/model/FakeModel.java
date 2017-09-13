@@ -25,4 +25,24 @@ private ModelData modelData = new ModelData();
         modelData.setUsers(users);
 
     }
+
+    @Override
+    public void loadUserById(long userid) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void loadDeletedUsers() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteUserById(long id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void changeUserData(String name, long id, int level) {
+        throw new UnsupportedOperationException();
+    }
 }

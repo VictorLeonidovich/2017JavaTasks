@@ -14,16 +14,17 @@ public class UsersView implements View {
 
     @Override
     public void refresh(ModelData modelData) {
-        System.out.println("All users:");
-for (User data : modelData.getUsers()){
-    System.out.print("\t");
-    System.out.println(data.toString());
-}
+        if (!modelData.isDisplayDeletedUserList()) System.out.println("All users:");
+        else System.out.println("All deleted users:");
+        for (User data : modelData.getUsers()) {
+            System.out.print("\t");
+            System.out.println(data.toString());
+        }
         System.out.println("===================================================");
     }
 
-   public void fireEventShowAllUsers(){
-       controller.onShowAllUsers();
+    public void fireEventShowAllUsers() {
+        controller.onShowAllUsers();
 
     }
 
@@ -31,5 +32,12 @@ for (User data : modelData.getUsers()){
     public void setController(Controller controller) {
         this.controller = controller;
 
+    }
+
+    public void fireEventShowDeletedUsers() {
+        controller.onShowAllDeletedUsers();
+    }
+    public void fireEventOpenUserEditForm(long id) {
+        controller.onOpenUserEditForm(id);
     }
 }
